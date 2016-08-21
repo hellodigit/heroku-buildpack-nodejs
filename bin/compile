@@ -98,7 +98,7 @@ header "Installing binaries"
 install_bins | output "$LOG_FILE"
 
 envconsul_url="https://s3.amazonaws.com/digit-devops-assets"
-envconsul_package_version="envconsul_0.6.0_linux_amd64.zip"
+envconsul_package_version="envconsul_0.6.1.zip"
 envconsul_download_url="$envconsul_url/$envconsul_package_version"
 
 echo "-----> Downloading envconsul binary package from $envconsul_download_url"
