@@ -100,11 +100,13 @@ install_bins | output "$LOG_FILE"
 envconsul_url="https://s3.amazonaws.com/digit-devops-assets"
 envconsul_package_version="envconsul_0.6.1.zip"
 envconsul_download_url="$envconsul_url/$envconsul_package_version"
+destination="$1/bin"
 
-echo "-----> Downloading envconsul binary package from $envconsul_download_url"
+echo "-----> Downloading envconsul binary package from $envconsul_download_url to $destination"
+mkdir $destination && cd $destination
 
-curl -L --silent $envconsul_download_url > $1/bin/$envconsul_package_version
-cd $1/bin && unzip $envconsul_package_version && rm $envconsul_package_version
+curl $envconsul_download_url -o $envconsul_package_version
+unzip $envconsul_package_version && rm $envconsul_package_version
 
 restore_cache() {
   local cache_status="$(get_cache_status)"
